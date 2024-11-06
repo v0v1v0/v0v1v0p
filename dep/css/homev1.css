@@ -258,7 +258,7 @@ html, body {
 
 
 .fancy_background {
-  background-image: url('/static/background.png'); 
+  background-image: url('https://v0v1v0.github.io/v0v1v0p/media/background.png'); 
   min-height: 601px;
 }
 
