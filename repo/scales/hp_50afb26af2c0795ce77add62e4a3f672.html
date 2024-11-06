@@ -1,0 +1,76 @@
+<div class="container"><main><table style="width: 100%;"><tr>
+<td>pal_hue</td>
+<td style="text-align: right;">R Documentation</td>
+</tr></table>
+<h2>Hue palette (discrete)</h2>
+
+<h3>Description</h3>
+
+<p>Hue palette (discrete)
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class="language-R">pal_hue(h = c(0, 360) + 15, c = 100, l = 65, h.start = 0, direction = 1)
+
+hue_pal(h = c(0, 360) + 15, c = 100, l = 65, h.start = 0, direction = 1)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr>
+<td><code id="h">h</code></td>
+<td>
+<p>range of hues to use, in [0, 360]</p>
+</td>
+</tr>
+<tr>
+<td><code id="c">c</code></td>
+<td>
+<p>chroma (intensity of colour), maximum value varies depending on
+combination of hue and luminance.</p>
+</td>
+</tr>
+<tr>
+<td><code id="l">l</code></td>
+<td>
+<p>luminance (lightness), in [0, 100]</p>
+</td>
+</tr>
+<tr>
+<td><code id="h.start">h.start</code></td>
+<td>
+<p>hue to start at</p>
+</td>
+</tr>
+<tr>
+<td><code id="direction">direction</code></td>
+<td>
+<p>direction to travel around the colour wheel,
+1 = clockwise, -1 = counter-clockwise</p>
+</td>
+</tr>
+</table>
+<h3>Examples</h3>
+
+<pre><code class="language-R">show_col(pal_hue()(4))
+show_col(pal_hue()(9))
+show_col(pal_hue(l = 90)(9))
+show_col(pal_hue(l = 30)(9))
+
+show_col(pal_hue()(9))
+show_col(pal_hue(direction = -1)(9))
+show_col(pal_hue(h.start = 30)(9))
+show_col(pal_hue(h.start = 90)(9))
+
+show_col(pal_hue()(9))
+show_col(pal_hue(h = c(0, 90))(9))
+show_col(pal_hue(h = c(90, 180))(9))
+show_col(pal_hue(h = c(180, 270))(9))
+show_col(pal_hue(h = c(270, 360))(9))
+</code></pre>
+
+</main></div>

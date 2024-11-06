@@ -1,0 +1,44 @@
+<div class="container"><main><table style="width: 100%;"><tr>
+<td>fct_c</td>
+<td style="text-align: right;">R Documentation</td>
+</tr></table>
+<h2>Concatenate factors, combining levels</h2>
+
+<h3>Description</h3>
+
+<p>This is a useful way of patching together factors from multiple sources
+that really should have the same levels but don't.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class="language-R">fct_c(...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table><tr>
+<td><code id="...">...</code></td>
+<td>
+<p>&lt;<code>dynamic-dots</code>&gt; Individual
+factors. Uses tidy dots, so you can splice in a list of factors
+with <code style="white-space: pre;"><U+2060>!!!<U+2060></code>.</p>
+</td>
+</tr></table>
+<h3>Examples</h3>
+
+<pre><code class="language-R">fa &lt;- factor("a")
+fb &lt;- factor("b")
+fab &lt;- factor(c("a", "b"))
+
+c(fa, fb, fab)
+fct_c(fa, fb, fab)
+
+# You can also pass a list of factors with !!!
+fs &lt;- list(fa, fb, fab)
+fct_c(!!!fs)
+</code></pre>
+
+</main></div>

@@ -1,0 +1,38 @@
+<div class="container"><main><table style="width: 100%;"><tr>
+<td>shim_install</td>
+<td style="text-align: right;">R Documentation</td>
+</tr></table>
+<h2>Shim functions from base R</h2>
+
+<h3>Description</h3>
+
+<p>Replace base R functions with implementations
+that work in the webR environment.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class="language-R">shim_install()
+</code></pre>
+
+
+<h3>Details</h3>
+
+<p>The shimmed functions are:
+</p>
+
+<ul>
+<li>
+<p> install.packages() - replaced by webr::install().
+</p>
+</li>
+<li>
+<p> library() - replaced by webr::library_shim().
+</p>
+</li>
+<li>
+<p> require() - replaced by webr::require_shim().
+</p>
+</li>
+</ul></main></div>

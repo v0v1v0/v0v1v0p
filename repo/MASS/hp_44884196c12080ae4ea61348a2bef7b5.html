@@ -1,0 +1,93 @@
+<div class="container"><main><table style="width: 100%;"><tr>
+<td>huber</td>
+<td style="text-align: right;">R Documentation</td>
+</tr></table>
+<h2>
+Huber M-estimator of Location with MAD Scale
+</h2>
+
+<h3>Description</h3>
+
+<p>Finds the Huber M-estimator of location with MAD scale.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class="language-R">huber(y, k = 1.5, tol = 1e-06)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr>
+<td><code id="y">y</code></td>
+<td>
+
+<p>vector of data values
+</p>
+</td>
+</tr>
+<tr>
+<td><code id="k">k</code></td>
+<td>
+
+<p>Winsorizes at <code>k</code> standard deviations
+</p>
+</td>
+</tr>
+<tr>
+<td><code id="tol">tol</code></td>
+<td>
+
+<p>convergence tolerance
+</p>
+</td>
+</tr>
+</table>
+<h3>Value</h3>
+
+<p>list of location and scale parameters
+</p>
+<table>
+<tr>
+<td><code>mu</code></td>
+<td>
+
+<p>location estimate
+</p>
+</td>
+</tr>
+<tr>
+<td><code>s</code></td>
+<td>
+
+<p>MAD scale estimate
+</p>
+</td>
+</tr>
+</table>
+<h3>References</h3>
+
+<p>Huber, P. J. (1981)
+<em>Robust Statistics.</em>
+Wiley.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (2002)
+<em>Modern Applied Statistics with S.</em> Fourth edition.  Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>hubers</code>, <code>mad</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class="language-R">huber(chem)
+</code></pre>
+
+</main></div>

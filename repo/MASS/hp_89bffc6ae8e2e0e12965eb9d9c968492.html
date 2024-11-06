@@ -1,0 +1,233 @@
+<div class="container"><main><table style="width: 100%;"><tr>
+<td>lm.ridge</td>
+<td style="text-align: right;">R Documentation</td>
+</tr></table>
+<h2>
+Ridge Regression
+</h2>
+
+<h3>Description</h3>
+
+<p>Fit a linear model by ridge regression.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class="language-R">lm.ridge(formula, data, subset, na.action, lambda = 0, model = FALSE,
+         x = FALSE, y = FALSE, contrasts = NULL, ...)
+select(obj)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr>
+<td><code id="formula">formula</code></td>
+<td>
+
+<p>a formula expression as for regression models, of the form
+<code>response ~ predictors</code>. See the documentation of <code>formula</code>
+for other details. <code>offset</code> terms are allowed.
+</p>
+</td>
+</tr>
+<tr>
+<td><code id="data">data</code></td>
+<td>
+
+<p>an optional data frame, list or environment in which to interpret the
+variables occurring in <code>formula</code>.
+</p>
+</td>
+</tr>
+<tr>
+<td><code id="subset">subset</code></td>
+<td>
+
+<p>expression saying which subset of the rows of the data should  be used
+in the fit.  All observations are included by default.
+</p>
+</td>
+</tr>
+<tr>
+<td><code id="na.action">na.action</code></td>
+<td>
+
+<p>a function to filter missing data.
+</p>
+</td>
+</tr>
+<tr>
+<td><code id="lambda">lambda</code></td>
+<td>
+
+<p>A scalar or vector of ridge constants.
+</p>
+</td>
+</tr>
+<tr>
+<td><code id="model">model</code></td>
+<td>
+
+<p>should the model frame be returned?  Not implemented.
+</p>
+</td>
+</tr>
+<tr>
+<td><code id="x">x</code></td>
+<td>
+
+<p>should the design matrix be returned?  Not implemented.
+</p>
+</td>
+</tr>
+<tr>
+<td><code id="y">y</code></td>
+<td>
+
+<p>should the response be returned?  Not implemented.
+</p>
+</td>
+</tr>
+<tr>
+<td><code id="contrasts">contrasts</code></td>
+<td>
+
+<p>a list of contrasts to be used for some or all of factor terms in the
+formula. See the <code>contrasts.arg</code> of <code>model.matrix.default</code>.
+</p>
+</td>
+</tr>
+<tr>
+<td><code id="...">...</code></td>
+<td>
+
+<p>additional arguments to <code>lm.fit</code>.
+</p>
+</td>
+</tr>
+<tr>
+<td><code id="obj">obj</code></td>
+<td>
+
+<p>an <span class="rlang"><b>R</b></span> object, such as an <code>"lm.ridge"</code> fit.
+</p>
+</td>
+</tr>
+</table>
+<h3>Details</h3>
+
+<p>If an intercept is present in the model, its coefficient is not
+penalized.  (If you want to penalize an intercept, put in your own
+constant term and remove the intercept.)
+</p>
+
+
+<h3>Value</h3>
+
+<p>A list with components
+</p>
+<table>
+<tr>
+<td><code>coef</code></td>
+<td>
+
+<p>matrix of coefficients, one row for each value of <code>lambda</code>.
+Note that these are not on the original scale and are for use by the
+<code>coef</code> method.
+</p>
+</td>
+</tr>
+<tr>
+<td><code>scales</code></td>
+<td>
+
+<p>scalings used on the X matrix.
+</p>
+</td>
+</tr>
+<tr>
+<td><code>Inter</code></td>
+<td>
+
+<p>was intercept included?
+</p>
+</td>
+</tr>
+<tr>
+<td><code>lambda</code></td>
+<td>
+
+<p>vector of lambda values
+</p>
+</td>
+</tr>
+<tr>
+<td><code>ym</code></td>
+<td>
+
+<p>mean of <code>y</code>
+</p>
+</td>
+</tr>
+<tr>
+<td><code>xm</code></td>
+<td>
+
+<p>column means of <code>x</code> matrix
+</p>
+</td>
+</tr>
+<tr>
+<td><code>GCV</code></td>
+<td>
+
+<p>vector of GCV values
+</p>
+</td>
+</tr>
+<tr>
+<td><code>kHKB</code></td>
+<td>
+
+<p>HKB estimate of the ridge constant.
+</p>
+</td>
+</tr>
+<tr>
+<td><code>kLW</code></td>
+<td>
+
+<p>L-W estimate of the ridge constant.
+</p>
+</td>
+</tr>
+</table>
+<h3>References</h3>
+
+<p>Brown, P. J. (1994)
+<em>Measurement, Regression and Calibration</em>
+Oxford.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>lm</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class="language-R">longley # not the same as the S-PLUS dataset
+names(longley)[1] &lt;- "y"
+lm.ridge(y ~ ., longley)
+plot(lm.ridge(y ~ ., longley,
+              lambda = seq(0,0.1,0.001)))
+select(lm.ridge(y ~ ., longley,
+               lambda = seq(0,0.1,0.0001)))
+</code></pre>
+
+</main></div>

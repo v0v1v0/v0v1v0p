@@ -1,0 +1,95 @@
+<div class="container"><main><table style="width: 100%;"><tr>
+<td>Rcpp.plugin.maker</td>
+<td style="text-align: right;">R Documentation</td>
+</tr></table>
+<h2>
+Facilitating making package plugins
+</h2>
+
+<h3>Description</h3>
+
+<p>This function helps packages making inline plugins. 
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class="language-R">Rcpp.plugin.maker(
+  include.before = "", 
+  include.after = "", 
+  LinkingTo = unique(c(package, "Rcpp")), 
+  Depends = unique(c(package, "Rcpp")), 
+  Imports = unique(c(package, "Rcpp")), 
+  libs = "", 
+  Makevars = NULL, 
+  Makevars.win = NULL, 
+  package = "Rcpp"
+)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr>
+<td><code id="include.before">include.before</code></td>
+<td>
+<p>Code to be included before the <U+2018><span class="samp"><U+2060>Rcpp.h<U+2060></span><U+2019> file</p>
+</td>
+</tr>
+<tr>
+<td><code id="include.after">include.after</code></td>
+<td>
+<p>Code to be included after the <U+2018><span class="samp"><U+2060>Rcpp.h<U+2060></span><U+2019> file </p>
+</td>
+</tr>
+<tr>
+<td><code id="LinkingTo">LinkingTo</code></td>
+<td>
+<p>Packages to be added to the <U+2018><span class="samp"><U+2060>LinkingTo<U+2060></span><U+2019> field </p>
+</td>
+</tr>
+<tr>
+<td><code id="Depends">Depends</code></td>
+<td>
+<p>Packages to be added to the <U+2018><span class="samp"><U+2060>Depends<U+2060></span><U+2019> field [deprecated] </p>
+</td>
+</tr>
+<tr>
+<td><code id="Imports">Imports</code></td>
+<td>
+<p>Packages to be added to the <U+2018><span class="samp"><U+2060>Depends<U+2060></span><U+2019> field </p>
+</td>
+</tr>
+<tr>
+<td><code id="libs">libs</code></td>
+<td>
+<p>library flags</p>
+</td>
+</tr>
+<tr>
+<td><code id="Makevars">Makevars</code></td>
+<td>
+<p>content for a <U+2018><span class="samp"><U+2060>Makevars<U+2060></span><U+2019> file, or <code>NULL</code></p>
+</td>
+</tr>
+<tr>
+<td><code id="Makevars.win">Makevars.win</code></td>
+<td>
+<p>content for a <U+2018><span class="samp"><U+2060>Makevars.win<U+2060></span><U+2019> file, or <code>NULL</code></p>
+</td>
+</tr>
+<tr>
+<td><code id="package">package</code></td>
+<td>
+<p>The package this plugin is for. </p>
+</td>
+</tr>
+</table>
+<h3>Value</h3>
+
+<p>A function that is suitable as a plugin. See for example the 
+<U+2018><span class="samp"><U+2060>RcppArmadillo<U+2060></span><U+2019> package that uses this to create its inline plugin. 
+</p>
+
+</main></div>

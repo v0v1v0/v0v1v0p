@@ -1,0 +1,196 @@
+<div class="container"><main><table style="width: 100%;"><tr>
+<td>Matrix-class</td>
+<td style="text-align: right;">R Documentation</td>
+</tr></table>
+<h2>Virtual Class "Matrix" of Matrices</h2>
+
+<h3>Description</h3>
+
+<p>The <code>Matrix</code> class is a class contained by all actual
+classes in the <span class="pkg">Matrix</span> package.  It is a <U+201C>virtual<U+201D> class.
+</p>
+
+
+<h3>Slots</h3>
+
+
+<dl>
+<dt><code>Dim</code></dt>
+<dd>
+<p>an integer vector of length 2 giving the
+dimensions of the matrix.</p>
+</dd>
+<dt><code>Dimnames</code></dt>
+<dd>
+<p>a list of length 2.  Each element must
+be <code>NULL</code> or a character vector of length equal to the
+corresponding element of <code>Dim</code>.</p>
+</dd>
+</dl>
+<h3>Methods</h3>
+
+
+<dl>
+<dt>determinant</dt>
+<dd>
+<p><code>signature(x = "Matrix", logarithm = "missing")</code>: and</p>
+</dd>
+<dt>determinant</dt>
+<dd>
+<p><code>signature(x = "Matrix", logarithm = "logical")</code>:
+compute the (<code class="reqn">\log</code>) determinant of <code>x</code>.  The method
+chosen depends on the actual Matrix class of <code>x</code>.  Note that
+<code>det</code> also works for all our matrices, calling the
+appropriate <code>determinant()</code> method.  The <code>Matrix::det</code>
+is an exact copy of <code>base::det</code>, but in the correct
+namespace, and hence calling the S4-aware version of
+<code>determinant()</code>.).</p>
+</dd>
+<dt>diff</dt>
+<dd>
+<p><code>signature(x = "Matrix")</code>: As <code>diff()</code>
+for traditional matrices, i.e., applying <code>diff()</code> to each
+column.</p>
+</dd>
+<dt>dim</dt>
+<dd>
+<p><code>signature(x = "Matrix")</code>: extract matrix dimensions
+<code>dim</code>.</p>
+</dd>
+<dt>dim&lt;-</dt>
+<dd>
+<p><code>signature(x = "Matrix", value = "ANY")</code>: where
+<code>value</code> is integer of length 2.  Allows to <em>reshape</em>
+Matrix objects, but only when <code>prod(value) == prod(dim(x))</code>.</p>
+</dd>
+<dt>dimnames</dt>
+<dd>
+<p><code>signature(x = "Matrix")</code>: extract
+<code>dimnames</code>.</p>
+</dd>
+<dt>dimnames&lt;-</dt>
+<dd>
+<p><code>signature(x = "Matrix", value = "list")</code>: set
+the <code>dimnames</code> to a <code>list</code> of length 2, see
+<code>dimnames&lt;-</code>.</p>
+</dd>
+<dt>length</dt>
+<dd>
+<p><code>signature(x = "Matrix")</code>: simply defined as
+<code>prod(dim(x))</code> (and hence of mode <code>"double"</code>).</p>
+</dd>
+<dt>show</dt>
+<dd>
+<p><code>signature(object = "Matrix")</code>: <code>show</code>
+method for <code>print</code>ing.  For printing <em>sparse</em>
+matrices, see <code>printSpMatrix</code>.</p>
+</dd>
+<dt>zapsmall</dt>
+<dd>
+<p><code>signature(x = "Matrix")</code>: typically used for
+<code>"dMatrix"</code>: <code>round()</code> matrix entries
+such that (relatively) very small entries become zero exactly.</p>
+</dd>
+<dt>image</dt>
+<dd>
+<p><code>signature(object = "Matrix")</code>: draws an
+<code>image</code> of the matrix entries, using
+<code>levelplot()</code> from package <span class="pkg">lattice</span>.</p>
+</dd>
+<dt>head</dt>
+<dd>
+<p><code>signature(object = "Matrix")</code>: return only the
+<em><U+201C>head<U+201D></em>, i.e., the first few rows.</p>
+</dd>
+<dt>tail</dt>
+<dd>
+<p><code>signature(object = "Matrix")</code>: return only the
+<em><U+201C>tail<U+201D></em>, i.e., the last few rows of the respective matrix.</p>
+</dd>
+</dl>
+<p><br></p>
+<dl>
+<dt>as.matrix, as.array</dt>
+<dd>
+<p><code>signature(x = "Matrix")</code>: the same as
+<code>as(x, "matrix")</code>; see also the note below.</p>
+</dd>
+<dt>as.vector</dt>
+<dd>
+<p><code>signature(x = "Matrix", mode = "missing")</code>:
+<code>as.vector(m)</code> should be identical to <code>as.vector(as(m,
+	"matrix"))</code>, implemented more efficiently for some subclasses.</p>
+</dd>
+<dt>as(x, "vector"), as(x, "numeric")</dt>
+<dd>
+<p>etc, similarly.</p>
+</dd>
+<dt>coerce</dt>
+<dd>
+<p><code>signature(from = "ANY", to = "Matrix")</code>: This
+relies on a correct <code>as.matrix()</code> method for <code>from</code>.</p>
+</dd>
+</dl>
+<p>There are many more methods that (conceptually should) work for all
+<code>"Matrix"</code> objects, e.g., <code>colSums</code>,
+<code>rowMeans</code>.  Even <span class="pkg">base</span> functions may work
+automagically (if they first call <code>as.matrix()</code> on their
+principal argument), e.g., <code>apply</code>, <code>eigen</code>,
+<code>svd</code> or <code>kappa</code> all do work via coercion to a
+<U+201C>traditional<U+201D> (dense) <code>matrix</code>.
+</p>
+
+
+
+<h3>Note</h3>
+
+<p>Loading the <code>Matrix</code> namespace <U+201C>overloads<U+201D>
+<code>as.matrix</code> and <code>as.array</code> in the <span class="pkg">base</span>
+namespace by the equivalent of <code>function(x) as(x, "matrix")</code>.
+Consequently, <code>as.matrix(m)</code> or <code>as.array(m)</code> will properly
+work when <code>m</code> inherits from the <code>"Matrix"</code> class <U+2014>
+<em>also</em> for functions in package <span class="pkg">base</span> and other packages.
+E.g., <code>apply</code> or <code>outer</code> can therefore be applied
+to <code>"Matrix"</code> matrices.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Douglas Bates <a href="mailto:bates@stat.wisc.edu">bates@stat.wisc.edu</a> and Martin Maechler</p>
+
+
+<h3>See Also</h3>
+
+<p>the classes <code>dgeMatrix</code>,
+<code>dgCMatrix</code>, and function
+<code>Matrix</code> for construction (and examples).
+</p>
+<p>Methods, e.g., for <code>kronecker</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class="language-R">slotNames("Matrix")
+
+cl &lt;- getClass("Matrix")
+names(cl@subclasses) # more than 40 ..
+
+showClass("Matrix")#&gt; output with slots and all subclasses
+
+(M &lt;- Matrix(c(0,1,0,0), 6, 4))
+dim(M)
+diag(M)
+cm &lt;- M[1:4,] + 10*Diagonal(4)
+diff(M)
+## can reshape it even :
+dim(M) &lt;- c(2, 12)
+M
+stopifnot(identical(M, Matrix(c(0,1,0,0), 2,12)),
+          all.equal(det(cm),
+                    determinant(as(cm,"matrix"), log=FALSE)$modulus,
+                    check.attributes=FALSE))
+</code></pre>
+
+</main></div>

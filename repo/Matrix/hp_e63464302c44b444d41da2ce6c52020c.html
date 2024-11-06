@@ -1,0 +1,105 @@
+<div class="container"><main><table style="width: 100%;"><tr>
+<td>boolmatmult-methods</td>
+<td style="text-align: right;">R Documentation</td>
+</tr></table>
+<h2>Boolean Arithmetic Matrix Products: <code>%&amp;%</code> and Methods</h2>
+
+<h3>Description</h3>
+
+<p>For boolean or <U+201C>patter<b>n</b><U+201D> matrices, i.e., <span class="rlang"><b>R</b></span> objects of
+class <code>nMatrix</code>, it is natural to allow matrix
+products using boolean instead of numerical arithmetic.
+</p>
+<p>In package <span class="pkg">Matrix</span>, we use the binary operator <code>%&amp;%</code> (aka
+<U+201C>infix<U+201D>) function) for this and provide methods for all our
+matrices and the traditional <span class="rlang"><b>R</b></span> matrices (see <code>matrix</code>).
+</p>
+
+
+<h3>Value</h3>
+
+<p>a pattern matrix, i.e., inheriting from <code>"nMatrix"</code>,
+or an <code>"ldiMatrix"</code> in case of a diagonal matrix.
+</p>
+
+
+<h3>Methods</h3>
+
+<p>We provide methods for both the <U+201C>traditional<U+201D> (<span class="rlang"><b>R</b></span> base) matrices
+and numeric vectors and conceptually all matrices and
+<code>sparseVector</code>s in package <span class="pkg">Matrix</span>.
+</p>
+
+<dl>
+<dt><code>signature(x = "ANY", y = "ANY")</code></dt>
+<dd> </dd>
+<dt><code>signature(x = "ANY", y = "Matrix")</code></dt>
+<dd> </dd>
+<dt><code>signature(x = "Matrix", y = "ANY")</code></dt>
+<dd> </dd>
+<dt><code>signature(x = "nMatrix", y = "nMatrix")</code></dt>
+<dd> </dd>
+<dt><code>signature(x = "nMatrix", y = "nsparseMatrix")</code></dt>
+<dd> </dd>
+<dt><code>signature(x = "nsparseMatrix", y = "nMatrix")</code></dt>
+<dd> </dd>
+<dt><code>signature(x = "nsparseMatrix", y = "nsparseMatrix")</code></dt>
+<dd> </dd>
+<dt><code>signature(x = "sparseVector", y = "sparseVector")</code></dt>
+<dd> </dd>
+</dl>
+<h3>Note</h3>
+
+<p>These boolean arithmetic matrix products had been newly
+introduced for <span class="pkg">Matrix</span> 1.2.0 (March 2015).  Its implementation
+has still not been tested extensively.
+</p>
+<p>Originally, it was left unspecified how non-structural zeros, i.e., <code>0</code>'s
+as part of the <code>M@x</code> slot should be treated for numeric
+(<code>"dMatrix"</code>) and logical (<code>"lMatrix"</code>)
+sparse matrices.  We now specify that boolean matrix products should behave as if
+applied to <code>drop0(M)</code>, i.e., as if dropping such zeros from
+the matrix before using it.
+<br>
+Equivalently, for all matrices <code>M</code>, boolean arithmetic should work as if
+applied to <code>M != 0</code> (or <code>M != FALSE</code>).
+</p>
+<p>The current implementation ends up coercing both <code>x</code> and <code>y</code> to
+(virtual) class <code>nsparseMatrix</code> which may be quite inefficient
+for dense matrices.  A future implementation may well return a matrix
+with <b>different</b> class, but the <U+201C>same<U+201D> content, i.e., the
+same matrix entries <code class="reqn">m_ij</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>%*%</code>, <code>crossprod()</code>, or <code>tcrossprod()</code>,
+for (regular) matrix product methods.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class="language-R">
+set.seed(7)
+L &lt;- Matrix(rnorm(20) &gt; 1,    4,5)
+(N &lt;- as(L, "nMatrix"))
+L. &lt;- L; L.[1:2,1] &lt;- TRUE; L.@x[1:2] &lt;- FALSE; L. # has "zeros" to drop0()
+D &lt;- Matrix(round(rnorm(30)), 5,6) # -&gt; values in -1:1 (for this seed)
+L %&amp;% D
+stopifnot(identical(L %&amp;% D, N %&amp;% D),
+          all(L %&amp;% D == as((L %*% abs(D)) &gt; 0, "sparseMatrix")))
+
+## cross products , possibly with  boolArith = TRUE :
+crossprod(N)     # -&gt; sparse patter'n' (TRUE/FALSE : boolean arithmetic)
+crossprod(N  +0) # -&gt; numeric Matrix (with same "pattern")
+stopifnot(all(crossprod(N) == t(N) %&amp;% N),
+          identical(crossprod(N), crossprod(N +0, boolArith=TRUE)),
+          identical(crossprod(L), crossprod(N   , boolArith=FALSE)))
+crossprod(D, boolArith =  TRUE) # pattern: "nsCMatrix"
+crossprod(L, boolArith =  TRUE) #  ditto
+crossprod(L, boolArith = FALSE) # numeric: "dsCMatrix"
+</code></pre>
+
+</main></div>

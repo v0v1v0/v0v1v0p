@@ -1,0 +1,67 @@
+<div class="container"><main><table style="width: 100%;"><tr>
+<td>install</td>
+<td style="text-align: right;">R Documentation</td>
+</tr></table>
+<h2>Install one or more packages from a webR binary package repo</h2>
+
+<h3>Description</h3>
+
+<p>Install one or more packages from a webR binary package repo
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class="language-R">install(
+  packages,
+  repos = NULL,
+  info = NULL,
+  lib = NULL,
+  quiet = FALSE,
+  mount = TRUE
+)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr>
+<td><code id="packages">packages</code></td>
+<td>
+<p>Character vector containing the names of packages to install.</p>
+</td>
+</tr>
+<tr>
+<td><code id="repos">repos</code></td>
+<td>
+<p>Character vector containing the URIs of the webR repos to use.</p>
+</td>
+</tr>
+<tr>
+<td><code id="info">info</code></td>
+<td>
+<p>A character matrix as from <code>available.packages()</code>. Can be used as
+an alternative to looking up available packages with the <code>repos</code> argument.</p>
+</td>
+</tr>
+<tr>
+<td><code id="lib">lib</code></td>
+<td>
+<p>The library directory where the packages will be installed.</p>
+</td>
+</tr>
+<tr>
+<td><code id="quiet">quiet</code></td>
+<td>
+<p>Logical. If <code>TRUE</code>, do not output downloading messages.</p>
+</td>
+</tr>
+<tr>
+<td><code id="mount">mount</code></td>
+<td>
+<p>Logical. If <code>TRUE</code>, download and mount packages using Emscripten
+filesystem images.</p>
+</td>
+</tr>
+</table></main></div>

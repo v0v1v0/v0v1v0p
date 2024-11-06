@@ -1,0 +1,67 @@
+<div class="container"><main><table style="width: 100%;"><tr>
+<td>date_names</td>
+<td style="text-align: right;">R Documentation</td>
+</tr></table>
+<h2>Create or retrieve date names</h2>
+
+<h3>Description</h3>
+
+<p>When parsing dates, you often need to know how weekdays of the week and
+months are represented as text. This pair of functions allows you to either
+create your own, or retrieve from a standard list. The standard list is
+derived from ICU (<code style="white-space: pre;"><U+2060>http://site.icu-project.org<U+2060></code>) via the stringi package.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class="language-R">date_names(mon, mon_ab = mon, day, day_ab = day, am_pm = c("AM", "PM"))
+
+date_names_lang(language)
+
+date_names_langs()
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr>
+<td>
+<code id="mon">mon</code>, <code id="mon_ab">mon_ab</code>
+</td>
+<td>
+<p>Full and abbreviated month names.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code id="day">day</code>, <code id="day_ab">day_ab</code>
+</td>
+<td>
+<p>Full and abbreviated week day names. Starts with Sunday.</p>
+</td>
+</tr>
+<tr>
+<td><code id="am_pm">am_pm</code></td>
+<td>
+<p>Names used for AM and PM.</p>
+</td>
+</tr>
+<tr>
+<td><code id="language">language</code></td>
+<td>
+<p>A BCP 47 locale, made up of a language and a region,
+e.g. <code>"en"</code> for American English. See <code>date_names_langs()</code>
+for a complete list of available locales.</p>
+</td>
+</tr>
+</table>
+<h3>Examples</h3>
+
+<pre><code class="language-R">date_names_lang("en")
+date_names_lang("ko")
+date_names_lang("fr")
+</code></pre>
+
+</main></div>

@@ -1,0 +1,47 @@
+<div class="container"><main><table style="width: 100%;"><tr>
+<td>auto_test_package</td>
+<td style="text-align: right;">R Documentation</td>
+</tr></table>
+<h2>Watches a package for changes, rerunning tests as appropriate.</h2>
+
+<h3>Description</h3>
+
+<p>Watches a package for changes, rerunning tests as appropriate.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class="language-R">auto_test_package(pkg = ".", reporter = default_reporter(), hash = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr>
+<td><code id="pkg">pkg</code></td>
+<td>
+<p>path to package</p>
+</td>
+</tr>
+<tr>
+<td><code id="reporter">reporter</code></td>
+<td>
+<p>test reporter to use</p>
+</td>
+</tr>
+<tr>
+<td><code id="hash">hash</code></td>
+<td>
+<p>Passed on to <code>watch()</code>.  When FALSE, uses less accurate
+modification time stamps, but those are faster for large files.</p>
+</td>
+</tr>
+</table>
+<h3>See Also</h3>
+
+<p><code>auto_test()</code> for details on how method works
+</p>
+
+</main></div>

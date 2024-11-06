@@ -1,0 +1,65 @@
+<div class="container"><main><table style="width: 100%;"><tr>
+<td>mount</td>
+<td style="text-align: right;">R Documentation</td>
+</tr></table>
+<h2>Mount an Emscripten filesystem object</h2>
+
+<h3>Description</h3>
+
+<p>Uses the Emscripten filesystem API to mount a filesystem object onto a given
+directory in the virtual filesystem. The mountpoint will be created if it
+does not already exist.
+</p>
+<p>When mounting an Emscripten "workerfs" type filesystem the <code>source</code> should
+be the URL for a filesystem image with filename ending <code>.data</code>, as produced
+by Emscripten's <code>file_packager</code> tool. The filesystem image and metadata will
+be downloaded and mounted onto the directory <code>mountpoint</code>.
+</p>
+<p>When mounting an Emscripten "nodefs" type filesystem, the <code>source</code> should be
+the path to a physical directory on the host filesystem. The host directory
+will be mapped into the virtual filesystem and mounted onto the directory
+<code>mountpoint</code>. This filesystem type can only be used when webR is running
+under Node.
+</p>
+<p>When mounting an Emscripten "idbfs" type filesystem, files will be persisted
+to or populated from a browser-based IndexedDB database whenever the
+JavaScript function <code>Module.FS.syncfs</code> is invoked. See the Emscripten <code>IDBFS</code>
+documentation for more information. This filesystem type can only be used
+when webR is running in a web browser and using the <code>PostMessage</code>
+communication channel.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class="language-R">mount(mountpoint, source, type = "workerfs")
+
+unmount(mountpoint)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr>
+<td><code id="mountpoint">mountpoint</code></td>
+<td>
+<p>a character string giving the path to a directory to mount
+onto in the Emscripten virtual filesystem.</p>
+</td>
+</tr>
+<tr>
+<td><code id="source">source</code></td>
+<td>
+<p>a character string giving the location of the data source to be
+mounted.</p>
+</td>
+</tr>
+<tr>
+<td><code id="type">type</code></td>
+<td>
+<p>a character string giving the type of Emscripten filesystem to be
+mounted: "workerfs", "nodefs", or "idbfs".</p>
+</td>
+</tr>
+</table></main></div>

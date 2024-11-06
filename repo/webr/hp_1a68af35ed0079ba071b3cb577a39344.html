@@ -1,0 +1,44 @@
+<div class="container"><main><table style="width: 100%;"><tr>
+<td>eval_js</td>
+<td style="text-align: right;">R Documentation</td>
+</tr></table>
+<h2>Evaluate JavaScript code</h2>
+
+<h3>Description</h3>
+
+<p>This function evaluates the given character string as JavaScript code. The
+result is returned as an integer.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class="language-R">eval_js(code)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table><tr>
+<td><code id="code">code</code></td>
+<td>
+<p>The JavaScript code to evaluate.</p>
+</td>
+</tr></table>
+<h3>Details</h3>
+
+<p>The JavaScript code is evaluated using <code>emscripten_run_script_int</code> from the
+Emscripten C API. In the event of a JavaScript exception an R error condition
+will be raised with the exception message.
+</p>
+<p>This is an experimental function that may undergo a breaking change in the
+future so as to support different return types.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Integer result of evaluating the code.
+</p>
+
+</main></div>

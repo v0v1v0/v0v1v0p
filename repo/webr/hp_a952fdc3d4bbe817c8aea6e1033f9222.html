@@ -1,0 +1,23 @@
+<div class="container"><main><table style="width: 100%;"><tr>
+<td>pager_install</td>
+<td style="text-align: right;">R Documentation</td>
+</tr></table>
+<h2>Generate an output message when file is displayed with the pager</h2>
+
+<h3>Description</h3>
+
+<p>When enabled, the R pager function is replaced so that a request to display
+a file's contents instead generates a webR output message. The request is
+forwarded to the main thread to be handled by the application loading webR.
+</p>
+<p>This replaces the default R pager mechanism, which tries to start an external
+pager binary using the <code>system()</code> function.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class="language-R">pager_install()
+</code></pre>
+
+</main></div>
