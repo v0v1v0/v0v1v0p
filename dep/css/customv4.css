@@ -1,0 +1,722 @@
+.no_underscore {
+  text-decoration: none;
+}
+
+
+
+#cc_ace_editor {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+}
+
+#script_ace_editor {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+}
+
+
+.tt-sm {
+  font-size: 50%;
+}
+
+.border_radius {
+  border-radius: 0 !important;
+}
+
+.img_center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pk_col {
+  width: 10%;
+}
+
+.center_cell {
+  text-align: center;
+}
+
+
+.select_cell {
+  text-align: center;
+}
+
+.fullh {
+  height: 90vh;
+}
+
+.r80 {
+  height: 88%;
+  /* Make the row take the full height of the container */
+}
+
+.h100 {
+  height: 100%;
+}
+
+
+.w80 {
+  width: 88%;
+  /* Make the row take the full height of the container */
+}
+
+
+/* Playfair Display */
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Roboto */
+@font-face {
+  font-family: 'Roboto';
+  src: url('fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+.action_hover:hover {
+  background-color: #f9f1f1;
+}
+
+
+.wh {
+  background-color: #ffffff;
+}
+
+#files_drop_zone {
+  width: 100%;
+  height: 200px;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 18px;
+  color: #aaa;
+}
+
+#files_drop_zone.dragover {
+  border-color: #000;
+  color: #000;
+}
+
+
+
+#files_drop_zone_to_update {
+  width: 100%;
+  height: 200px;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 18px;
+  color: #aaa;
+}
+
+#files_drop_zone_to_update.dragover {
+  border-color: #000;
+  color: #000;
+}
+
+#simulators_drop_zone {
+  width: 100%;
+  height: 200px;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 18px;
+  color: #aaa;
+}
+
+#simulators_drop_zone.dragover {
+  border-color: #000;
+  color: #000;
+}
+
+
+
+#simulators_drop_zone_to_update {
+  width: 100%;
+  height: 200px;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 18px;
+  color: #aaa;
+}
+
+#simulators_drop_zone_to_update.dragover {
+  border-color: #000;
+  color: #000;
+}
+
+
+
+
+#ntools_drop_zone {
+  width: 100%;
+  height: 200px;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 18px;
+  color: #aaa;
+}
+
+#ntools_drop_zone.dragover {
+  border-color: #000;
+  color: #000;
+}
+
+
+
+
+
+
+.custom-card {
+  border-radius: 1rem 1rem 0 0;
+  /* Rounded top, flat bottom */
+}
+
+.custom-card .card-body {
+  border-bottom-left-radius: 0;
+  /* Ensure the body is flat at the bottom */
+  border-bottom-right-radius: 0;
+}
+
+
+.simulator_editor_table_parent {
+  width: 100%;
+}
+
+
+#simulator_editor_table .jexcel {
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: bold;
+  color: #000000;
+  line-height: 44px;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  color: #000000;
+  line-height: 44px;
+}
+
+h3 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+  color: #000000;
+  line-height: 28px;
+}
+
+h4 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  color: #000000;
+  line-height: 18px;
+}
+
+h5 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  color: #000000;
+  line-height: 16px;
+}
+
+.h5_selected {
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  color: #000000;
+  line-height: 16px;
+}
+
+
+
+#root {
+  padding: 10px;
+}
+
+#toast-container {
+  z-index: 11;
+}
+
+.dataTables_wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table.dataTable td,
+table.dataTable th {
+  white-space: nowrap;
+}
+
+.error-toast {
+  background-color: #f8d7da;
+  color: #721c24;
+  border-color: #f5c6cb;
+  max-width: 300px;
+  word-wrap: break-word;
+}
+
+.toast-body {
+  overflow-y: auto;
+  max-height: 200px;
+}
+
+.btn-close {
+  flex-shrink: 0;
+}
+
+.max-height-25vh {
+  height: 200px;
+  max-height: 200px;
+}
+
+.card-body-scroll {
+  overflow: auto;
+
+}
+
+
+
+
+
+
+
+html,
+body {
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+}
+
+.footer {
+  padding: 1rem;
+  text-align: center;
+}
+
+
+.fancy_background {
+  background-image: url('/static/background.png');
+  min-height: 601px;
+}
+
+body {
+  overflow: hidden;
+}
+
+.container-fluid2 {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#top-pane {
+
+  width: 100%;
+  overflow: auto;
+  /* Prevent scrollbars */
+  min-height: 10px;
+}
+
+#bottom-pane {
+  width: 100%;
+  overflow: auto;
+  min-height: 10px;
+}
+
+#resizer {
+  background-color: #f8f8f8;
+  cursor: ns-resize;
+  user-select: none;
+  border: 1px solid #d2d2d2;
+}
+
+
+
+
+#btnbarold {
+  user-select: none;
+  position: absolute;
+  left: 10px;
+  z-index: 1;
+  bottom: -2px;
+}
+
+.top-pane-style {
+  height: calc(90% - 41px);
+}
+
+.bottom-pane-style {
+  height: calc(10% - 41px);
+  padding: 10px;
+}
+
+.rowheader {
+  background-color: #f8f8f8;
+}
+
+.halffont {
+  font-size: 60%;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+
+.warning-message {
+  display: none;
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid #f5c6cb;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.warning-message:empty {
+  display: none;
+}
+
+.warning-message:not(:empty) {
+  display: block;
+}
+
+
+.mono-font {
+  font-family: 'Courier New', Courier, 'Lucida Console', 'Monaco', Consolas, 'Source Code Pro', Menlo, monospace;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.halfwaycontainer {
+  padding-left: 100px;
+  padding-right: 100px;
+  ;
+
+}
+
+.card.no-rounded {
+  border-radius: 0;
+}
+
+
+
+
+
+
+
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: #efefef !important;
+}
+
+.navbar {
+  height: 50px;
+  /* Set the height you want */
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+  line-height: 50px;
+  /* Vertically center text in the navbar */
+}
+
+#project-bar {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#layoutContainer {
+  width: calc(100% - 20px);
+  height: calc(100% - 95px);
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 3px;
+  margin-bottom: 10px;
+}
+
+.component-class {
+  background-color: #fff;
+  height: 100%;
+  overflow: auto;
+  padding: 10px;
+}
+
+.component-wb-m0-class {
+  background-color: #fff;
+  height: calc(100% - 35px);
+  padding: 0px;
+  margin: 0px;
+}
+
+
+.component-wb-m0-class2 {
+  position: relative;
+  background-color: #fff;
+  height: calc(100% - 35px);
+  padding: 0px;
+  margin: 0px;
+
+}
+#environment-grid {
+  height: 100%;  /* Ensure the grid takes up the full height of its container */
+  width: 100%;   /* Optional: ensure grid width is also 100% */
+
+}
+
+
+#full-size {
+  height: 100%;  /* Ensure the grid takes up the full height of its container */
+  width: 100%;   /* Optional: ensure grid width is also 100% */
+
+}
+
+.component-dt {
+  background-color: #fff;
+  height: 300px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.component-bar {
+  width: 100%;
+  height: 35px;
+  background-color: #FAF9F6;
+
+}
+
+
+
+#terminal_container_parent_parent {
+  position: relative; /* Ensure the parent has a position context */
+  height: calc(100% - 25px);
+  background-color: #ffffff;
+}
+
+
+
+
+
+#terminal_container_parent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: calc(100% - 25px);
+  background-color: #ffffff;
+  padding-left: 5px;
+  padding-right: 1px;
+  padding-bottom: 0px;
+  position: relative; /* Ensure positioning context for children */
+}
+
+/* Terminal container styles */
+#terminal_container {
+  flex: 1 1 auto; /* Allow the terminal to grow and fill available space */
+  overflow: hidden; /* Prevent scrollbars from appearing */
+}
+
+
+.monaco_editor_parent {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 25px);
+}
+
+.monaco_editor {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+
+.dmonaco_editor_parent {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 25px);
+}
+
+.deditor {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+
+#hmonaco_editor_parent {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 25px);
+}
+
+#heditor {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+
+#nmonaco_editor_parent {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 25px);
+}
+
+#neditor {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+
+.barbi {
+  border: 1px solid rgba(0, 0, 0, 0);         /* Light gray border */
+  border-radius: 4px;             /* Rounded corners */
+  color: #0d6efd;
+}
+
+.barbi:hover {
+  background-color: #e7e7e7;      /* Light gray background on hover */
+  border: 1px solid #ccc;         /* Light gray border */
+  border-radius: 4px;             /* Rounded corners */
+                  /* Padding to make it look like a button */
+  cursor: pointer;                /* Change cursor to pointer */
+  transition: all 0.2s ease-in-out; /* Smooth transition effect */
+  color: #0a58ca
+}
+
+.plot_background {
+  background-color: #fff; 
+}
+
+
+.example-call {
+  font-style: italic;
+  font-weight: bold;
+}
+
+
+
+
+@font-face {
+  font-family: 'codicon';
+  src: url('/static/dep/monaco-r-editor/codicon.ttf') format('truetype');
+}
+
+.suggest-widget {
+  max-width: 90vw; /* Limit width to 90% of the viewport width */
+  overflow: hidden; /* Hide overflow */
+}
+
+
+.bi-trash3, .bi-trash3:hover {
+
+  color: red;
+}
+
+
+.lesson_image {
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height:auto; 
+  margin-bottom:20px;
+}
+
+
+.monaco-editor .editor-widget.signature-help {
+  z-index: 999 !important; /* Adjust based on your preference */
+}
+
+
+
+
+.barbi-active {
+  background-color: #0d6efd;      /* Blue background for active state */
+  border: 1px solid #0a58ca;      /* Darker blue border */
+  color: white;                   /* White text to contrast the background */
+  border-radius: 4px;             /* Keep the same rounded corners */
+  transition: all 0.2s ease-in-out; /* Keep smooth transition */
+}
+
+.barbi-active:hover {
+  background-color: #0a58ca;      /* Slightly darker blue on hover */
+  border: 1px solid #084298;      /* Darker blue border on hover */
+  color: white;                   /* Keep white text on hover */
+  cursor: pointer;                /* Maintain pointer cursor on hover */
+}
+
+
+
+.z-highlight {
+  background-color: yellow;
+}
